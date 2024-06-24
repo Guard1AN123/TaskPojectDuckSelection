@@ -8,7 +8,6 @@ public class HintManager : MonoSingleton<HintManager>
     [field:SerializeField] public RectTransform hintHandRectTransform {  get; private set; }
 
     private Coroutine _hintCoroutine = null;
-    private bool _hintInitialized = false;
     private void Update()
     {
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended)
@@ -24,7 +23,6 @@ public class HintManager : MonoSingleton<HintManager>
     public void InitializeHints()
     {
         _hintCoroutine = StartCoroutine(InteractionTimer());
-        _hintInitialized = true;
     }
     public IEnumerator InteractionTimer()
     {

@@ -11,7 +11,6 @@ public class GameManager : MonoSingleton<GameManager>
     [field: SerializeField] public RectTransform ducksParent { get; private set; }
     [field: SerializeField] public List<Color> colorSchemes { get; private set; }
 
-    public GameState gameState { get; private set; }
     public List<Color> selectedColors { get; private set; } = new();
     public List<Basket> generatedBaskets { get; private set; } = new();
     public List<Duck> generatedDucks { get; private set; } = new();
@@ -28,7 +27,6 @@ public class GameManager : MonoSingleton<GameManager>
     #region Initialization
     public void InitializeGame()
     {
-        gameState = GameState.Initializing;
         guessesToMake = basketsSpawnPoints.spawnPoints.Count;
         InitializeBackets();
     }
